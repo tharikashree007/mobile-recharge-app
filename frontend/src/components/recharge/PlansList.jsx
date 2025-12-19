@@ -12,7 +12,7 @@ function PlansList({ operator, onPlanSelect }) {
 
   const fetchPlans = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/recharge/plans/${operator}`);
+      const response = await axios.get(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/recharge/plans/${operator}`);
       setPlans(response.data);
     } catch (error) {
       console.error('Error fetching plans:', error);

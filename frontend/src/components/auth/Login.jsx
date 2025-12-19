@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { API_ENDPOINTS } from '../../config/api';
 
 function Login({ onLogin }) {
   const [formData, setFormData] = useState({ email: '', password: '' });
@@ -13,7 +14,7 @@ function Login({ onLogin }) {
     setError('');
 
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/login', formData);
+      const response = await axios.post(API_ENDPOINTS.LOGIN, formData);
       console.log('JWT Token:', response.data.token);
       localStorage.setItem('token', response.data.token);
       onLogin(response.data.token, response.data.user);

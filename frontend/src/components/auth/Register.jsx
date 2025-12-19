@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { API_ENDPOINTS } from '../../config/api';
 
 function Register({ onLogin }) {
   const [formData, setFormData] = useState({ 
@@ -19,7 +20,7 @@ function Register({ onLogin }) {
     setError('');
 
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/register', formData);
+      const response = await axios.post(API_ENDPOINTS.REGISTER, formData);
       onLogin(response.data.token, response.data.user);
     } catch (error) {
       setError(error.response?.data?.message || 'Registration failed');

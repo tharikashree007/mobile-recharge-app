@@ -28,7 +28,7 @@ function RechargeForm({ user, onRechargeSuccess, preSelectedOperator, preSelecte
       if (user) {
         // Logged in user - save to database
         const token = localStorage.getItem('token');
-        const response = await axios.post('http://localhost:5000/api/recharge/recharge', formData, {
+        const response = await axios.post(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/recharge/recharge`, formData, {
           headers: { Authorization: `Bearer ${token}` }
         });
         onRechargeSuccess(`Recharge successful! Remaining balance: ₹${response.data.remainingBalance}`);
