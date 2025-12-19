@@ -1,0 +1,22 @@
+{
+  "name": "mobile-recharge-app",
+  "version": "1.0.0",
+  "description": "A complete mobile recharge application with role-based authentication built with MERN stack",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "cd backend && npm start",
+    "dev": "cd backend && npm run dev",
+    "build": "cd frontend && npm install && npm run build",
+    "install-backend": "cd backend && npm install",
+    "install-frontend": "cd frontend && npm install",
+    "install-all": "npm run install-backend && npm run install-frontend",
+    "seed-admin": "cd backend && node seedAdmin.js",
+    "seed-plans": "cd backend && node seedPlans.js"
+  },
+  "keywords": ["mobile", "recharge", "mern", "react", "nodejs", "mongodb"],
+  "author": "Tharika Shree",
+  "license": "MIT",
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
