@@ -4,7 +4,7 @@ const User = require('../models/User');
 const router = express.Router();
 
 // Seed admin endpoint (one-time use)
-router.post('/admin', async (req, res) => {
+router.get('/admin', async (req, res) => {
   try {
     const adminEmail = 'admin@example.com';
     
