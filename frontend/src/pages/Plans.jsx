@@ -19,7 +19,7 @@ function Plans() {
 
   const fetchPlans = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/recharge/plans');
+      const response = await axios.get(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/recharge/plans`);
       setPlans(response.data);
     } catch (error) {
       console.error('Error fetching plans:', error);
@@ -61,13 +61,13 @@ function Plans() {
       
       if (token) {
         // Authenticated user - save to database
-        await axios.post('http://localhost:5000/api/recharge/recharge', rechargeData, {
+        await axios.post(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/recharge/recharge`, rechargeData, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setMessage('Recharge successful!');
       } else {
         // Guest user - use guest endpoint
-        await axios.post('http://localhost:5000/api/recharge/guest-recharge', rechargeData);
+        await axios.post(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/recharge/guest-recharge`, rechargeData);
         setMessage('Recharge successful! (Guest mode - not saved to history)');
       }
       
