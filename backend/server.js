@@ -42,6 +42,7 @@ mongoose.connect(process.env.MONGODB_URI)
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/recharge', require('./routes/recharge'));
 app.use('/api/admin', require('./routes/admin'));
+app.use('/api/seed', require('./routes/seed'));
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
